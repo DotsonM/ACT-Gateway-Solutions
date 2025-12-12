@@ -1,0 +1,29 @@
+
+<h1>ACT GATEWAY: AppLocker Considerations</h1>
+<p>If your Testing Center is utilizing AppLocker policy to secure Windows devices, you may notice issues with ACT Gateway. Specifically, default AppLocker policies have been found to suppress a necessary script that runs during Device Checks on the machine during pretest validation and during testing sessions.</p>
+
+<p>If you are applying Default AppLocker policies and you find that your Device Check is falsely returning a failed “Device Check” due to an outdated OS version, consider adding the AppLocker rule below to allow the check to properly process on the machine.</p>
+
+<h2>AppLocker Rule to Add for Scripts</h2>
+<ol>
+    <li>Right-click the “Script Rules” and choose “New Rule”.</li>
+    <li>On the “Before you Begin” window, click <strong>Next</strong>.</li>
+    <li>On the “Permissions” window, ensure the Action is set to <strong>Allow</strong> and the User or Group is <strong>Everyone</strong>, click <strong>Next</strong>.
+        <br>
+        <a href="images/image_Zz0i4NEoEvbnJReH24Y4iQ==.png"   <img src="images/image_Zz0i4NEoEvbnJReH24Y4iQ==.png" alt="Permissions Window Screenshot" styleindow, click <strong>Path</strong> and click <strong>Next</strong>.</li>
+    <li>On the “Path” window, enter <code>%OSDRIVE%\Users\*\appdata\local\Temp\*</code> and click <strong>Next</strong>.</li>
+    <li>On the “Exceptions” window, click <strong>Next</strong>.</li>
+    <li>On the “Name” window, enter a name for the rule and click <strong>Create</strong>.</li>
+    <li>Test the rule to ensure that ACT Gateway Device Check is now working.</li>
+    <li>When ready, right-click on AppLocker, <strong>Export Policy</strong> and deploy to other Testing Center machines (likely done through Group Policy).
+        <br>
+        images/image_i48wWatKMo_z+fmfDFd0RQ==.png
+            <imges/image_i48wWatKMo_z+fmfDFd0RQ==.png
+        </a>
+    </li>
+</ol>
+
+<h2>Once applied, the Device Check should complete successfully</h2>
+<a href="images/image_1KP8HHnrwvQ3CqREpng
+    images/image_1KP8HHnrwvQ3CqREngVsMg==.png
+</a>
