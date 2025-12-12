@@ -3,7 +3,8 @@ body {
   margin: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   justify-content: center;
   display: flex;
@@ -19,6 +20,7 @@ td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  border-style: groove;
 }
 
 th {
